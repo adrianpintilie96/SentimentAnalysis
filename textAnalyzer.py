@@ -1,18 +1,24 @@
 from textblob import TextBlob
 
-def analyze_text(input_text):
-    input_text_blob = TextBlob(input_text)
+def analyze_sentence(input_text):
+    sentence = TextBlob(input_text)
     #todo: error try catch
-    language = input_text_blob.detect_language()
+    language = sentence.detect_language()
     if language != 'en':
-        input_text_blob = input_text_blob.translate(from_lang=language, to='en')
+        sentence = sentence.translate(from_lang=language, to='en')
+    
+    return sentence.polarity
 
-    sentences = input_text_blob.sentences
-
-    for sentence in sentences:
-        print(sentence.sentiment)
+def polarity_to_category(polarity):
+    if polarity > 0.2:
+        return "Happy"
+    elif polarity < -0.2:
+        return "Sad"
+    else:
+        return "Neutral"
 
 if __name__ == '__main__':
+    #todo: update the main
     first_input = 'Eu sunt foarte fericit.'
     second_input = 'Babylon does a lot of great things!. I’m very happy that my team won the world cup!. I feel a bit sad today. The book is red. I am verry happy.'
     analyze_text(second_input)
@@ -21,3 +27,14 @@ if __name__ == '__main__':
 #Use the correct() method to attempt spelling correction.
 # nltk.download('punkt') -> for punctuation
 # nltk needed to download punkt
+# why I choosed flask (elegance and simplicity, not familiar with python)
+
+
+#process the data, validate the data 
+#add to CV git, flask, rest
+#authentification?
+#support only sentences
+
+'''Input Content: Sentences with less than three words cannot be analysed. This service supports up to 128KB of text (about 1000 sentences). A good use case would be tweets / Facebook posts of customers on company page.'''
+"Content-type: Valid values are text/plain, text/html, or application/json.
+"Input: It takes text input of at least two words."
