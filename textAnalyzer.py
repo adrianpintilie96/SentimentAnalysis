@@ -1,17 +1,19 @@
 from textblob import TextBlob
 
-text1 = 'Eu sunt fericit.'
+text1 = 'Eu sunt foarte fericit.'
 text2 = 'The book is red. I am verry happy.'
 
-input_text = TextBlob(text1)
+input_text = TextBlob(text2)
 #todo: error try catch
 language = input_text.detect_language()
-translated = input_text.translate(from_lang=language, to='en')
+if language != 'en':
+    input_text = input_text.translate(from_lang=language, to='en')
 
+print(input_text)
 sentences = input_text.sentences
 
 for sentence in sentences:
-    print(sentence.sentiment)
+    print(sentence.sentiment)    
 
 #consider sentences
 #Use the correct() method to attempt spelling correction.
