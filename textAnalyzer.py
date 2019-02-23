@@ -1,25 +1,27 @@
-
-import nltk
 from textblob import TextBlob
 
-#nltk.download()
-from nltk.sentiment.vader import SentimentIntensityAnalyzer as SIA
+text1 = 'Eu sunt fericit.'
+text2 = 'The book is red. I am verry happy.'
 
-sia = SIA()
+input_text = TextBlob(text1)
+#todo: error try catch
+language = input_text.detect_language()
+translated = input_text.translate(from_lang=language, to='en')
 
-#line = 'I’m very happy that my team won the world cup!'
-line = 'Eu sunt fericit'
+sentences = input_text.sentences
 
-pol_score = sia.polarity_scores(line)
-
-print(pol_score)
-
+for sentence in sentences:
+    print(sentence.sentiment)
 
 #consider sentences
 #Use the correct() method to attempt spelling correction.
-testimonial = TextBlob(line)
-language = testimonial.detect_language()
-print(language)
-testimonial.translate(from_lang=language, to='en')
-print(testimonial)
-print(testimonial.sentiment)
+#testimonial = TextBlob(inputText)
+#language = testimonial.detect_language()
+#print(language)
+#testimonial.translate(from_lang=language, to='en')
+#print(testimonial)
+#print(testimonial.sentiment)
+
+
+# nltk.download('punkt') -> for punctuation
+# nltk needed to download punkt
