@@ -1,29 +1,23 @@
 from textblob import TextBlob
 
-text1 = 'Eu sunt foarte fericit.'
-text2 = 'The book is red. I am verry happy.'
+def analyze_text(input_text):
+    input_text_blob = TextBlob(input_text)
+    #todo: error try catch
+    language = input_text_blob.detect_language()
+    if language != 'en':
+        input_text_blob = input_text_blob.translate(from_lang=language, to='en')
 
-input_text = TextBlob(text2)
-#todo: error try catch
-language = input_text.detect_language()
-if language != 'en':
-    input_text = input_text.translate(from_lang=language, to='en')
+    sentences = input_text_blob.sentences
 
-print(input_text)
-sentences = input_text.sentences
+    for sentence in sentences:
+        print(sentence.sentiment)
 
-for sentence in sentences:
-    print(sentence.sentiment)    
-
-#consider sentences
+if __name__ == '__main__':
+    first_input = 'Eu sunt foarte fericit.'
+    second_input = 'Babylon does a lot of great things!. I’m very happy that my team won the world cup!. I feel a bit sad today. The book is red. I am verry happy.'
+    analyze_text(second_input)
+    analyze_text(first_input)
+    
 #Use the correct() method to attempt spelling correction.
-#testimonial = TextBlob(inputText)
-#language = testimonial.detect_language()
-#print(language)
-#testimonial.translate(from_lang=language, to='en')
-#print(testimonial)
-#print(testimonial.sentiment)
-
-
 # nltk.download('punkt') -> for punctuation
 # nltk needed to download punkt
