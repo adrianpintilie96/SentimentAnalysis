@@ -18,12 +18,10 @@ def analyze():
         url = 'http://127.0.0.1:5000/analyze/'+input_text
         response = requests.get(url).json()
         emoji = response['emoji']
-        #todo: async call to apy?
         return render_template('result.html', received_text=input_text, image_source=emoji)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=90)
+    app.run(debug=True, port=5001)
 
 # flask bootstrap
-#cache the data?
 # other validation?
