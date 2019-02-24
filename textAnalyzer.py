@@ -11,19 +11,22 @@ def analyze_sentence(input_text):
 
 def polarity_to_category(polarity):
     if polarity > 0.2:
-        return "Happy"
+        return "happy"
     elif polarity < -0.2:
-        return "Sad"
+        return "sad"
     else:
-        return "Neutral"
+        return "neutral"
 
 if __name__ == '__main__':
     #todo: update the main
     first_input = 'Eu sunt foarte fericit.'
     second_input = 'Babylon does a lot of great things!. I’m very happy that my team won the world cup!. I feel a bit sad today. The book is red. I am verry happy.'
-    analyze_text(second_input)
-    analyze_text(first_input)
+    analyze_sentence(second_input)
+    analyze_sentence(first_input)
     
+
+#todo: make this a class? 
+
 #Use the correct() method to attempt spelling correction.
 # nltk.download('punkt') -> for punctuation
 # nltk needed to download punkt
@@ -35,6 +38,6 @@ if __name__ == '__main__':
 #authentification?
 #support only sentences
 
-'''Input Content: Sentences with less than three words cannot be analysed. This service supports up to 128KB of text (about 1000 sentences). A good use case would be tweets / Facebook posts of customers on company page.'''
-"Content-type: Valid values are text/plain, text/html, or application/json.
-"Input: It takes text input of at least two words."
+#'''Input Content: Sentences with less than three words cannot be analysed. This service supports up to 128KB of text (about 1000 sentences). A good use case would be tweets / Facebook posts of customers on company page.'''
+#"Content-type: Valid values are text/plain, text/html, or application/json.
+#"Input: It takes text input of at least two words."
