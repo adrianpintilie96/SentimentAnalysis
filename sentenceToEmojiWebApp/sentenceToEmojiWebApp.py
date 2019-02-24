@@ -19,6 +19,7 @@ def analyze():
         response = requests.get(url).json()
         image_source = response['category']
 		#todo: path of the image is not ok
+        #todo: async call to apy?
         return render_template('home.html', received_text=input_text, image_source=image_source)
 
 
@@ -27,3 +28,4 @@ if __name__ == '__main__':
 
 # flask bootstrap
 #cache the data?
+# other validation?
