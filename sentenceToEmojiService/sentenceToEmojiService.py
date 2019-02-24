@@ -14,6 +14,6 @@ class SentenceToEmoji(Resource):
 
 api.add_resource(SentenceToEmoji, '/analyze/<string:input_text>')
 
-#todo remove debig
+#todo remove debug
 if __name__ == '__main__':
     app.run(debug=True)

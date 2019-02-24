@@ -12,13 +12,10 @@
         <textarea class="form-control" rows="2" cols="2" name="rawtext"></textarea>
         <br>
         <div class="text-center">
-            <input type="submit" onclick="myAnalyser()" value="Analyze" class="btn btn-primary ">
+            <input type="submit" value="Analyze" class="btn btn-primary ">
         </div>
         </form>
     </div>
     <br>
-    <div class="text-center"> 
-    	<p style="color:#0091EA;font-family:sans-serif;">{{ received_text }}</p>
-        <img src="{{ image_source }}" width="250" height="250" />
-    </div>
+    {% block respone %} {% endblock respone %}
 {% endblock body %}

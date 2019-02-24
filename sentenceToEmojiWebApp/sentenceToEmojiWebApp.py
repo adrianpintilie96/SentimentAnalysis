@@ -17,11 +17,9 @@ def analyze():
         input_text = request.form['rawtext']
         url = 'http://127.0.0.1:5000/analyze/'+input_text
         response = requests.get(url).json()
-        image_source = response['category']
-		#todo: path of the image is not ok
+        emoji = response['emoji']
         #todo: async call to apy?
-        return render_template('home.html', received_text=input_text, image_source=image_source)
-
+        return render_template('result.html', received_text=input_text, image_source=emoji)
 
 if __name__ == '__main__':
     app.run(debug=True, port=90)
