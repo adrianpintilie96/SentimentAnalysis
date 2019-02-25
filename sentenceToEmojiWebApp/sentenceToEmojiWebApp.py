@@ -10,7 +10,6 @@ Bootstrap(app)
 def index():
     return render_template('home.html')
 
-
 @app.route('/analyze', methods=['POST'])
 def analyze():
     if request.method == 'POST':

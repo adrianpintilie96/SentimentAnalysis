@@ -10,6 +10,9 @@ class SentenceToEmoji(Resource):
         the sentiment of the input text.
         parameters:
             - input_text: text to be classified
+        returns:
+            - 200:
+                description: 
         """
         sentimentAnalyzer = SentimentAnalyzer(input_text)
         category = sentimentAnalyzer.classify()
