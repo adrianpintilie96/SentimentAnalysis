@@ -5,7 +5,6 @@ import requests
 app = Flask(__name__)
 Bootstrap(app)
 
-
 @app.route('/')
 def index():
     return render_template('home.html')
@@ -20,7 +19,4 @@ def analyze():
         return render_template('result.html', received_text=input_text, image_source=emoji)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
-
-# flask bootstrap
-# other validation?
+    app.run(port=5001)
