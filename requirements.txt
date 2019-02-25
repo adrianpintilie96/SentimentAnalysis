@@ -1,4 +1,5 @@
-flask==0.12.2
-flask_restful==0.3.6
-flask bootstrap
-text blob
+flask==1.0.2
+flask_restful==0.3.7
+textblob=0.15.3
+flask_bootstrap=3.3.7.1
+requests=2.21.0
